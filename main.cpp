@@ -15,13 +15,6 @@ using namespace std;
 using namespace ngraph;
 namespace ie = InferenceEngine;
 
-// DL Model
-// bitsadmin /transfer download https://github.com/onnx/models/raw/master/vision/classification/resnet/model/resnet18-v2-7.onnx %CD%\resnet18-v2-7.onnx
-// https://s3.amazonaws.com/download.onnx/models/opset_8/resnet50.tar.gz
-
-// cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release ..
-// msbuild onnxapi.sln /p:Configuration=Release
-
 int main(void) {
 
     // Read labels from file
@@ -92,26 +85,3 @@ int main(void) {
         std::cout << id+1 <<  " : " << idx[id] << " : " << output[idx[id]]*100 << "% " << labels[idx[id]] << std::endl;
     }
 }
-
-
-// MEMO --------------------------------------------------------------------------------------------------------
-
-// To list all supported ONNX ops in a specific version and domain, use the get_supported_operators as shown in the example below:
-/*
-const std::int64_t version = 12;
-const std::string domain = "ai.onnx";
-const std::set<std::string> supported_ops = ngraph::onnx_import::get_supported_operators(version, domain);
-for(const auto& op : supported_ops)
-{
-    std::cout << op << std::endl;
-}
-*/
-
-// To determine whether a specific ONNX operator in a particular version and domain is supported by the importer, use the is_operator_supported function as shown in the example below:
-/*
-const std::string op_name = "Abs";
-const std::int64_t version = 12;
-const std::string domain = "ai.onnx";
-const bool is_abs_op_supported = ngraph::onnx_import::is_operator_supported(op_name, version, domain);
-std::cout << "Abs in version 12, domain `ai.onnx`is supported: " << (is_abs_op_supported ? "true" : "false") << std::endl;
-*/
