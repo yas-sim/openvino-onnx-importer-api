@@ -36,7 +36,7 @@ bitsadmin /transfer download https://raw.githubusercontent.com/HoldenCaulfieldRy
 copy "%INTEL_OPENVINO_DIR%\deployment_tools\demo\car.png" .
 ```
 
-## How To Build
+## 3. How To Build
 
 Linux
 ```sh
@@ -56,7 +56,7 @@ msbuild onnx-importer.sln /p:Configuration=Release
 cd ..
 ```
 
-### How to Run
+### 4. How to Run
 
 Linux
 ```sh
