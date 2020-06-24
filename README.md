@@ -78,7 +78,7 @@ C:> build\Release\onnx-importer.exe
 C:>build\release\onnx-importer.exe
 Loading class label file : synset_words.txt
 Importing an ONNX model : model.onnx
-Converting an ONNX model into CNNNetwork
+Converting an nGraph model into CNNNetwork
 1 : 817 : 1112.83% n04285008 sports car, sport car
 2 : 511 : 1082.38% n03100240 convertible
 3 : 479 : 999.68% n02974003 car wheel
