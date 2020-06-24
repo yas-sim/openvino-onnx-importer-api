@@ -83,26 +83,3 @@ int main(void) {
         std::cout << id+1 <<  " : " << idx[id] << " : " << output[idx[id]]*100 << "% " << labels[idx[id]] << std::endl;
     }
 }
-
-
-// MEMO --------------------------------------------------------------------------------------------------------
-
-// To list all supported ONNX ops in a specific version and domain, use the get_supported_operators as shown in the example below:
-/*
-const std::int64_t version = 12;
-const std::string domain = "ai.onnx";
-const std::set<std::string> supported_ops = ngraph::onnx_import::get_supported_operators(version, domain);
-for(const auto& op : supported_ops)
-{
-    std::cout << op << std::endl;
-}
-*/
-
-// To determine whether a specific ONNX operator in a particular version and domain is supported by the importer, use the is_operator_supported function as shown in the example below:
-/*
-const std::string op_name = "Abs";
-const std::int64_t version = 12;
-const std::string domain = "ai.onnx";
-const bool is_abs_op_supported = ngraph::onnx_import::is_operator_supported(op_name, version, domain);
-std::cout << "Abs in version 12, domain `ai.onnx`is supported: " << (is_abs_op_supported ? "true" : "false") << std::endl;
-*/
