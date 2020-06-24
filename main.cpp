@@ -57,14 +57,11 @@ int main(void) {
     cv::Mat image, inblob_img;
     image = cv::imread("car.png");
 
-    // Set input image to input blob
-    auto input_dims = input_info->getTensorDesc().getDims();
-    size_t N = input_dims[0];
-    size_t C = input_dims[1];
-    size_t H = input_dims[2];
-    size_t W = input_dims[3];
-    //std::cout << N << "," << C << "," << H << "," << W << std::endl;
-    cv::resize(image, inblob_img, cv::Size(W,H));
+    // Set input image to input blob (resize, BGR->RGB, NHWC->HCHW)
+    // Both algorithm generates the same result
+#if 0
+    auto input_dims = input_info->getTensorDesc().getDims();  // 0,1,2,3 = N,C,H,W
+    cv::resize(image, inblob_img, cv::Size(input_dims[3], input_dims[2]));
     cv::cvtColor(inblob_img, inblob_img, cv::COLOR_BGR2RGB);
     uint8_t* buf = inblob_img.data;
     float* inblob = infer_request.GetBlob(input_name)->buffer();
@@ -74,7 +71,22 @@ int main(void) {
             inblob[1 * (W*H) + h*W + w] = (float)(*buf++)/255.f;    
             inblob[2 * (W*H) + h*W + w] = (float)(*buf++)/255.f;    
         }
-    }        
+    }
+#else
+    auto input_dims = input_info->getTensorDesc().getDims();  // 0,1,2,3 = N,C,H,W
+    cv::resize(image, inblob_img, cv::Size(input_dims[3], input_dims[2]));
+    cv::cvtColor(inblob_img, inblob_img, cv::COLOR_BGR2RGB);
+    std::vector<cv::Mat> planes;
+    cv::split(inblob_img, planes);
+    size_t img_size = input_dims[2] * input_dims[3];  // H*W
+    float* inblob = infer_request.GetBlob(input_name)->buffer();
+    for(size_t ch=0; ch<input_dims[1]; ch++) {
+        uint8_t* srcptr = planes[ch].data;
+        for(size_t i=0; i<img_size; i++) {
+            *inblob++ = (float)(*srcptr++)/255.f;
+        }
+    }
+#endif
 
     // Inference
     infer_request.Infer();
