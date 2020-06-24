@@ -40,14 +40,17 @@ int main(void) {
     std::cout << "Converting an ONNX model into CNNNetwork" << std::endl;
     ie::CNNNetwork network(ng_function);
 
+    // Setup for input blobs
     std::shared_ptr<ie::InputInfo> input_info = network.getInputsInfo().begin()->second;
     std::string                    input_name = network.getInputsInfo().begin()->first;
     input_info->setPrecision(ie::Precision::FP32);
 
+    // Setup for output blobs
     ie::DataPtr output_info = network.getOutputsInfo().begin()->second;
     std::string output_name = network.getOutputsInfo().begin()->first;
     output_info->setPrecision(ie::Precision::FP32);
 
+    // Load the model to IE core and create an infer request object
     ie::ExecutableNetwork executable_network = ie.LoadNetwork(network, "CPU");
     ie::InferRequest infer_request = executable_network.CreateInferRequest();
 
@@ -73,8 +76,10 @@ int main(void) {
         }
     }        
 
+    // Inference
     infer_request.Infer();
 
+    // Display inference output
     float* output = infer_request.GetBlob(output_name)->buffer();
     std::vector<int> idx;
     for(int i=0; i<1000; i++) idx.push_back(i);
