@@ -58,6 +58,8 @@ cd ..
 
 ### 4. How to Run
 
+This sample program supports image classification models such as Googlenet, ResNet, Squeezenet, Mobilenet and so on.  
+
 Linux
 ```sh
 $ ./build/onnx-importer
