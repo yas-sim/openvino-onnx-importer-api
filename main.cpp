@@ -39,7 +39,7 @@ int main(void) {
     ie::Core ie;
 
     // Wraps nGraph model with IE::CNNNetwork
-    std::cout << "Converting an ONNX model into CNNNetwork" << std::endl;
+    std::cout << "Converting an nGraph model into CNNNetwork" << std::endl;
     ie::CNNNetwork network(ng_function);
 
     std::shared_ptr<ie::InputInfo> input_info = network.getInputsInfo().begin()->second;
