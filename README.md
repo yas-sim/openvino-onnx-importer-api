@@ -14,6 +14,8 @@ ONNX model -(ONNX importer API)-> nGraph model -> CNNNetwork (an Inference Engin
 
 ## 2. Preparing required files (ONNX model, class label text file, input image)
 
+This sample program supports image classification models such as Googlenet, ResNet, Squeezenet, Mobilenet and so on.  
+
 Linux
 ```sh
 # Download an ONNX model (ResNet-50)
@@ -57,8 +59,6 @@ cd ..
 ```
 
 ### 4. How to Run
-
-This sample program supports image classification models such as Googlenet, ResNet, Squeezenet, Mobilenet and so on.  
 
 Linux
 ```sh
