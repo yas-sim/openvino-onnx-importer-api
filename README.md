@@ -1,6 +1,6 @@
 
 # Overview
-[ONNX importer API](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_OnnxImporterTutorial.html) is introduced from Intel(r) Distribution of OpenVINO(tm) toolkit 2020.3 LTS version. It allows user to load an ONNX model and convert it into an nGraph model with this API. Furthermore, user can import the nGraph model to OpenVINO CNNNetwork model so that the user can use a familiar Inference Engine API to run the model.  
+[ONNX importer API](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_OnnxImporterTutorial.html) is introduced from Intel(r) Distribution of OpenVINO(tm) toolkit 2020.3 LTS version. It allows user to load an ONNX model and convert it into an nGraph model. Furthermore, user can import the nGraph model to OpenVINO CNNNetwork model so that the user can use a familiar Inference Engine API to run the model.  
 This project will demonstrate how to use the ONNX importer API.  
 ```
 ONNX model -(ONNX importer API)-> nGraph model -> CNNNetwork (an Inference Engine object)
