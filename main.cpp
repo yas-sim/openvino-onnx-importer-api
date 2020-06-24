@@ -57,7 +57,7 @@ int main(void) {
     cv::Mat image, inblob_img;
     image = cv::imread("car.png");
 
-    // Set input image to input blob (resize, BGR->RGB, NHWC->HCHW)
+    // Set input image to input blob (resize, BGR->RGB, NHWC->HCHW + U8->FP32 + scaling(1/255))
     // Both algorithm generates the same result
 #if 0
     auto input_dims = input_info->getTensorDesc().getDims();  // 0,1,2,3 = N,C,H,W
