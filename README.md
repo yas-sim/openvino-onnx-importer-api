@@ -10,7 +10,7 @@ ONNX model -(ONNX importer API)-> nGraph model -> CNNNetwork (an Inference Engin
 このプロジェクトではONNX importer APIの使い方の例を示します。  
 
 ## 1. Prerequisites
-* [Intel Distribution of OpenVINO toolkit 2020.3 LTS (or above)](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html)
+* [Intel Distribution of OpenVINO toolkit 2020.2 (or newer)](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html)
 
 ## 2. Preparing required files (ONNX model, class label text file, input image)
 
