@@ -1,12 +1,12 @@
 
 # Overview
-[ONNX importer API](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_OnnxImporterTutorial.html) is introduced from Intel(r) Distribution of OpenVINO(tm) toolkit 2020.2 version. It allows user to load an ONNX model and convert it into an nGraph model. Furthermore, user can import the nGraph model to OpenVINO CNNNetwork model so that the user can use a familiar Inference Engine API to run the model.  
+[ONNX importer API](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_OnnxImporterTutorial.html) is introduced from Intel(r) Distribution of OpenVINO(tm) toolkit 2020.2 version. It allows user to load an ONNX model and convert it into an nGraph model. Furthermore, user can import the nGraph model to OpenVINO CNNNetwork model so that the user can use a familiar Inference Engine API to run the model. The user can run an ONNX model on any OpenVINO supported accelerators such as CPU, integrated GPU, VPU (Myriad) and FPGA.  
 This project will demonstrate how to use the ONNX importer API.  
 ```
 ONNX model -(ONNX importer API)-> nGraph model -> CNNNetwork (an Inference Engine object)
 ```
 
-[ONNX importer API](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_OnnxImporterTutorial.html)はIntel(r) Distribution of OpenVINO(tm) toolkit 2020.2バージョンから導入されたAPIです。これを使うことによってONNXモデルを読み込み、nGraphモデルに変換することが可能になります。また、このnGraphモデルをInference EngineのCNNNetworkモデルに変換することで使い慣れたInference Engine APIを使った推論が可能になります。  
+[ONNX importer API](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_OnnxImporterTutorial.html)はIntel(r) Distribution of OpenVINO(tm) toolkit 2020.2バージョンから導入されたAPIです。これを使うことによってONNXモデルを読み込み、nGraphモデルに変換することが可能になります。また、このnGraphモデルをInference EngineのCNNNetworkモデルに変換することで使い慣れたInference Engine APIを使った推論が可能になります。ユーザーはONNXモデルをCPU, 内蔵GPU, VPU (Myriad), FPGAなどのOpenVINOがサポートするすべてのデバイスで実行可能になります。  
 このプロジェクトではONNX importer APIの使い方の例を示します。  
 
 ## 1. Prerequisites
